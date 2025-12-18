@@ -10,6 +10,6 @@ public class HelloController {
 	
 	@GetMapping("/hello") // 실제 주소: /api/hello
     public String hello() {
-        return "ㅁㄴㅇㅁㄴ";
+        return "Hello";
     }
 }
