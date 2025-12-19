@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.practice.practicespringboot.dao.MemberDAO;
 import com.practice.practicespringboot.dto.MemberDTO;
+import com.practice.practicespringboot.mapper.MemberMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class MemberService {
 	
 	// (3) MemberService는 MemberDAO가 없으면 일을 못함 (의존성)
-    private final MemberDAO memberDAO;
+    private final MemberMapper memberDAO;
     
     public List<MemberDTO> getAllMembers() {
     	/* 아래서부터 비지니스 로직 */
