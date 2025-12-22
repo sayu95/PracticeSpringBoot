@@ -3,13 +3,13 @@
 <mapper
 	namespace="com.practice.practicespringboot.mapper.MemberMapper">
 	<select id="selectAllMembers" resultType="com.practice.practicespringboot.dto.MemberDTO">
-        SELECT 
-            Id, 
-            email, 
-            nickName, 
-            userName, 
-            passWord,
-            created_at AS createdAt
-        FROM member_table
+       SELECT ID, 
+	       MEM_ID, 
+	       MEM_NAME, 
+	       MEM_PASSWORD, 
+	       MEM_NICK,
+	       MEM_EMAIL, 
+	       MEM_CREATEAT
+       FROM "MEMBER"
     </select>
 </mapper>

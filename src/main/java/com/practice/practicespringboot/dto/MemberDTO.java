@@ -9,10 +9,10 @@ import lombok.Data;
 @Data
 public class MemberDTO {
 	private long Id;
-	private String userName;
-	private String passWord;   
-	private String nickName;    
-	private String email;
+	private String memId;
+	private String memName;   
+	private String memPassword;    
+	private String memEmail;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime createdAt;
