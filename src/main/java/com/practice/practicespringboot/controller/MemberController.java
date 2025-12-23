@@ -28,11 +28,11 @@ public class MemberController {
 
     @GetMapping("/members")
     public List<MemberDTO> readMemberList() {
-        return memberService.readMemberList();
+        return memberService.getMemberList();
     }
     
     @GetMapping("/member/{memId}")
     public MemberDTO readMember(@PathVariable("memId") long memId) {
-        return memberService.readMember(memId);
+        return memberService.getMember(memId);
     }
 }

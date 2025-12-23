@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.practice.practicespringboot.dto.MemberDTO;
 
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @SpringBootTest
 @Slf4j
+@Transactional
 class MemberMapperTest {
 
 	
@@ -21,11 +23,11 @@ class MemberMapperTest {
 	private MemberMapper mapper;
 
 	@Test
-	void testselectMemberList() {
+	void testreadMemberList() {
 		// given
 		
 		// when
-		List<MemberDTO> members = mapper.selectMemberList();
+		List<MemberDTO> members = mapper.readMemberList();
 
 		// 로그 활용: 조회된 리스트의 크기와 전체 내용 확인
 		log.info("조회된 회원 수: {}", members.size());
@@ -40,13 +42,13 @@ class MemberMapperTest {
 	}
 
 	@Test
-	void testselectMemberr() {
+	void testreadMember() {
 		// given
 		long targetId = 1;
 		log.info("회원 상세 조회 테스트 시작 - 대상 ID: {}", targetId);
 
 		// when
-		MemberDTO member = mapper.selectMember(targetId);
+		MemberDTO member = mapper.readMember(targetId);
 
 		// then
 		assertThat(member)
@@ -69,19 +71,23 @@ class MemberMapperTest {
 					.memEmail("test@test.com").build();
 		
 		//when
-		boolean flag = mapper.createMember(member);
+		int flag = mapper.createMember(member);
 		
 		//then
 		assertThat(flag)
-			.as("해당값은 True여야 한다.")
-			.isTrue();
+			.as("해당값은 1이여야 한다.")
+			.isEqualTo(1);
 	}
 	
 	@Test
 	void testdeleteMember() { 
 		//given
-		long targetId = 25;
+		long targetId = 4;
 		
-		boolean flag = mapper.deleteMember(targetId);
+		int flag = mapper.deleteMember(targetId);
+		
+		assertThat(flag)
+			.as("해당값은 1이여야한다.")
+			.isEqualTo(1);
 	}
 }
