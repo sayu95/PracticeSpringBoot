@@ -3,6 +3,8 @@ package com.practice.practicespringboot.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,11 +23,16 @@ import lombok.RequiredArgsConstructor;
 //1. 롬복이 생성자를 만듦
 public class MemberController {
 	
-	// 2. 스프링이 이 필드에 객체를 주입함
-	private final MemberService memberService; // 서비스 주입!
+	// 서비스 주입!
+	private final MemberService memberService; 
 
     @GetMapping("/members")
-    public List<MemberDTO> getAllMembers() {
-        return memberService.getAllMembers();
+    public List<MemberDTO> readMemberList() {
+        return memberService.readMemberList();
+    }
+    
+    @GetMapping("/member/{memId}")
+    public MemberDTO readMember(@PathVariable("memId") long memId) {
+        return memberService.readMember(memId);
     }
 }

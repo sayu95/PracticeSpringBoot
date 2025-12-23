@@ -17,11 +17,23 @@ import lombok.RequiredArgsConstructor;
 public class MemberService {
 	
 	// (3) MemberService는 MemberDAO가 없으면 일을 못함 (의존성)
-    private final MemberMapper memberDAO;
+    private final MemberMapper mapper;
     
-    public List<MemberDTO> getAllMembers() {
+    public List<MemberDTO> readMemberList() {
     	/* 아래서부터 비지니스 로직 */
     	// 비즈니스 로직: 예를 들어 탈퇴한 회원은 제외하고 보여준다거나...
-        return memberDAO.selectAllMembers(); // DAO에 일 시키기
+        return mapper.readMemberList();
     }
+
+	public MemberDTO readMember(long memId) {
+		/* 아래서부터 비지니스 로직 */
+		return mapper.readMember(memId);
+	}
+	
+	public boolean createMember(MemberDTO member) {
+		/* 아래서부터 비지니스 로직 */
+		return mapper.createMember(member);
+	}
+	
+	
 }

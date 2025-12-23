@@ -8,5 +8,8 @@ import com.practice.practicespringboot.dto.MemberDTO;
 
 @Mapper
 public interface MemberMapper {
-	List<MemberDTO> selectAllMembers();
+	List<MemberDTO> selectMemberList();
+	MemberDTO selectMember(long memId);
+	boolean createMember(MemberDTO member);
+	boolean deleteMember(long memId);
 }

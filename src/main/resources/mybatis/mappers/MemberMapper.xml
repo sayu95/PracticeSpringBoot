@@ -2,14 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
 	namespace="com.practice.practicespringboot.mapper.MemberMapper">
-	<select id="selectAllMembers" resultType="com.practice.practicespringboot.dto.MemberDTO">
-       SELECT ID, 
-	       MEM_ID, 
-	       MEM_NAME, 
-	       MEM_PASSWORD, 
-	       MEM_NICK,
-	       MEM_EMAIL, 
-	       MEM_CREATEAT
-       FROM "MEMBER"
-    </select>
+
+	<select id="readMemberList" resultType="MemberDTO">
+		SELECT ID,
+		MEM_ID,
+		MEM_NAME,
+		MEM_PASSWORD,
+		MEM_NICK,
+		MEM_EMAIL,
+		MEM_CREATEAT
+		FROM MEMBER
+	</select>
+
+	<select id="readMember" resultType="MemberDTO">
+		SELECT ID,
+		MEM_ID,
+		MEM_NAME,
+		MEM_PASSWORD,
+		MEM_NICK,
+		MEM_EMAIL,
+		MEM_CREATEAT
+		FROM MEMBER
+		WHERE ID = #{Id}
+	</select>
+
+	<insert id="createMember">
+		INSERT INTO MEMBER
+		(
+			MEM_ID,
+			MEM_NAME,
+			MEM_PASSWORD,
+			MEM_NICK,
+			MEM_EMAIL)
+		VALUES
+		(
+			#{memId},
+			#{memName},
+			#{memPassword},
+			#{memNick},
+			#{memEmail})
+	</insert>
+	
+	<delete id="deleteMember">
+		DELETE FROM MEMBER
+		WHERE ID = #{Id}
+	</delete>
 </mapper>
