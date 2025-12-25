@@ -18,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 class MemberMapperTest {
 
-	
 	@Autowired
 	private MemberMapper mapper;
 
