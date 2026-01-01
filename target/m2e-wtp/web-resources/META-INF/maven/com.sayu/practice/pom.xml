@@ -68,6 +68,13 @@
 			<version>4.0.1</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- tomcat-embed-jasper -->
+		<dependency>
+    		<groupId>org.apache.tomcat.embed</groupId>
+    		<artifactId>tomcat-embed-jasper</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
