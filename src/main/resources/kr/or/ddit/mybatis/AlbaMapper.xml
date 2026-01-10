@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.AlbaMapper">
+
+	<insert id="insertAlba" parameterType="AlbaDTO">
+		<selectKey keyProperty="alId" resultType="string"
+			order="BEFORE">
+			SELECT 'A' || LPAD(SEQ_ALBA_ID.NEXTVAL, 7, '0') FROM DUAL
+		</selectKey>
+		INSERT INTO ALBA (
+			AL_ID, 
+			AL_NAME, 
+			AL_AGE, 
+			AL_ZIP, 
+			AL_ADDR1,
+			AL_ADDR2, 
+			AL_HP, 
+			GR_CODE, 
+			AL_GEN, 
+			AL_MAL,
+			AL_CAREER, 
+			AL_SPEC, 
+			AL_DESC, 
+			AL_IMG
+		) VALUES (
+			#{alId},
+			#{alName}, 
+			#{alAge}, 
+			#{alZip}, 
+			#{alAddr1},
+			#{alAddr2}, 
+			#{alHp}, 
+			#{grCode}, 
+			#{alGen}, 
+			#{alMal},
+			#{alCareer}, 
+			#{alSpec}, 
+			#{alDesc}, 
+			#{alImg}
+		)
+	</insert>
+
+	<select id="selectAllAlba" resultType="AlbaDTO">
+		SELECT
+			AL_ID,
+			AL_NAME,
+			AL_AGE,
+			AL_ZIP,
+			AL_ADDR1,
+			AL_ADDR2,
+			AL_HP,
+			GR_CODE,
+			AL_GEN,
+			AL_MAL,
+			AL_CAREER,
+			AL_SPEC,
+			AL_DESC,
+			AL_IMG
+		FROM ALBA
+	</select>
+
+	<select id="selectAlba" parameterType="String" resultType="AlbaDTO">
+		SELECT
+			AL_ID,
+			AL_NAME,
+			AL_AGE,
+			AL_ZIP,
+			AL_ADDR1,
+			AL_ADDR2,
+			AL_HP,
+			GR_CODE,
+			AL_GEN,
+			AL_MAL,
+			AL_CAREER,
+			AL_SPEC,
+			AL_DESC,
+			AL_IMG
+		FROM ALBA
+		WHERE AL_ID = #{alId}
+	</select>
+
+	<update id="updateAlba" parameterType="AlbaDTO">
+		UPDATE Alba
+		SET
+       	 	AL_ZIP    = #{alZip},
+        	AL_ADDR1  = #{alAddr1},
+        	AL_ADDR2  = #{alAddr2},
+        	AL_HP     = #{alHp},
+        	AL_MAL   = #{alMal},
+        	AL_CAREER = #{alCareer},
+        	AL_SPEC   = #{alSpec},
+        	AL_DESC   = #{alDesc},
+        	AL_IMG    = #{alImg}
+        WHERE 
+        	AL_ID = #{alId}
+		
+	</update>
+
+	<delete id="deleteAlba" parameterType="string">
+   	 	DELETE FROM ALBA
+    	WHERE AL_ID = #{alId}
+	</delete>
+</mapper>
+

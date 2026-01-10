@@ -5,5 +5,6 @@
 SpringBoot, Oracle DataBase 21c
 
 ## 라이브러리
-exERD, Mybatis
+Spring Boot Starter Web, exERD, Mybatis
+OJDBC, Lombok
 
