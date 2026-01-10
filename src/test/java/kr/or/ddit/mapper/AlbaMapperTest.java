@@ -48,7 +48,7 @@ class AlbaMapperTest {
 	}
 	
 	@Test
-	@DisplayName("알바생 등록 후 검증 실패 케이스")
+	@DisplayName("알바생 등록 검증 실패 케이스")
 	@Disabled
 	void testInsertAlbaFail() {
 		//given
@@ -94,7 +94,7 @@ class AlbaMapperTest {
 	}
 
 	@Test
-	@DisplayName("전체 알바생 목록 조회 후 검증 실패 케이스")
+	@DisplayName("전체 알바생 목록 검증 실패 케이스")
 	@Disabled
 	void testSelectAllAlbafail() {
 		// given
@@ -125,7 +125,7 @@ class AlbaMapperTest {
 	}
 
 	@Test
-	@DisplayName("알바 상세조회 후 검증 실패 케이스")
+	@DisplayName("알바 상세조회 검증 실패 케이스")
 	@Disabled
 	void testSelectAlbafail() {
 		// given
@@ -171,7 +171,7 @@ class AlbaMapperTest {
 	}
 	
 	@Test
-	@DisplayName("알바 업데이트 후 검증 실패 케이스")
+	@DisplayName("알바 업데이트 검증 실패 케이스")
 	@Disabled
 	void testUpdateAlbafail() {
 		//given
@@ -214,7 +214,7 @@ class AlbaMapperTest {
 	}
 	
 	@Test
-	@DisplayName("알바 삭제 후 검증 실패 케이스")
+	@DisplayName("알바 삭제 검증 실패 케이스")
 	@Disabled
 	void testDeleteAlbafail() {
 		//given
